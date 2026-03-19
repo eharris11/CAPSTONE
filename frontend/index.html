@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fraud Sense</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="logo">Fraud Sense</div>
+    <nav>
+        <button class="nav-btn active">Dashboard</button>
+        <button class="nav-btn">Report Scam</button>
+        <button class="nav-btn">Learn</button>
+        <button class="nav-btn">Quizzes</button>
+    </nav>
+</header>
+
+<!-- MAIN -->
+<div class="container">
+
+    <h1>Welcome to Fraud Sense</h1>
+    <p class="subtitle">Your personal platform for detecting, reporting, and learning about scams</p>
+
+    <!-- STATS -->
+    <div class="stats">
+        <div class="card">
+            <h3>Reports Submitted</h3>
+            <p class="big">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Modules Completed</h3>
+            <p class="big">0/5</p>
+        </div>
+
+        <div class="card">
+            <h3>Community Protection</h3>
+            <p class="big">12.5K</p>
+        </div>
+
+        <div class="card">
+            <h3>Your Awareness</h3>
+            <p class="big">Beginner</p>
+        </div>
+    </div>
+
+    <!-- ACTION CARDS -->
+    <div class="actions">
+
+        <div class="card large">
+            <h3>Report a Scam</h3>
+            <textarea id="input" placeholder="Paste suspicious message here..."></textarea>
+            <button class="primary" onclick="analyze()">Analyze</button>
+        </div>
+
+        <div class="card large">
+            <h3>Learn About Scams</h3>
+            <button>Start Learning</button>
+        </div>
+
+        <div class="card large">
+            <h3>Test Your Knowledge</h3>
+            <button>Take Quiz</button>
+        </div>
+
+    </div>
+
+    <!-- RESULT -->
+    <div class="card result">
+        <h3>Analysis Result</h3>
+        <pre id="result"></pre>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
