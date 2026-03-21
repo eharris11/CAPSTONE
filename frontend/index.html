@@ -3,6 +3,7 @@
 <head>
     <title>Fraud Sense</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -52,7 +53,8 @@
         <div class="card large">
             <h3>Report a Scam</h3>
             <textarea id="input" placeholder="Paste suspicious message here..."></textarea>
-            <button class="primary" onclick="analyze()">Analyze</button>
+            <button type="button" class="primary" onclick="analyze()">Analyze</button>
+            <button type="button" onclick="clearInput()">Clear</button>
         </div>
 
         <div class="card large">
