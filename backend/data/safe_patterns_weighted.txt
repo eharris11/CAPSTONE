@@ -1,0 +1,107 @@
+it is how did your appointment,safe,0,-3
+it is just a quick reminder,safe,0,-3
+this is airlines your flight reservation,safe,0,-2
+this is airlines your reservation for,safe,0,-2
+this is appliance services your technician,safe,0,-2
+this is are we still good,safe,0,-2
+this is auto service your vehicle,safe,0,-2
+this is bakeshop we are now,safe,0,-1
+this is billing department your invoice,safe,0,-3
+this is bookstore your preorder for,safe,0,-2
+this is cinema just a reminderyour,safe,0,-3
+this is clinic your appointment with,safe,0,-4
+this is courier services your parcel,safe,0,-2
+this is delivery services your grocery,safe,0,-2
+this is delivery your order has,safe,0,-2
+this is dental care we are,safe,0,-2
+this is dental clinic your routine,safe,0,-3
+this is dr s office calling,safe,0,-2
+this is events team you rsvp,safe,0,-2
+this is from cardiology clinic we,safe,0,-3
+this is from cleaners your drycleaning,safe,0,-2
+this is from consumer support we,safe,0,-2
+this is from courier services you,safe,0,-2
+this is from delivery services you,safe,0,-2
+this is from delivery you received,safe,0,-2
+this is from dental clinic this,safe,0,-3
+this is from fitness center this,safe,0,-2
+this is from fitness centre just,safe,0,-2
+this is from grocery services we,safe,0,-2
+this is from hospital pharmacy your,safe,0,-3
+this is from living clinic i,safe,0,-2
+this is from logistics you would,safe,0,-2
+this is from medical center we,safe,0,-3
+this is from medical clinic just,safe,0,-3
+this is from motorcycle insurance just,safe,0,-2
+this is from orthocare we are,safe,0,-2
+this is from rehabilitation center we,safe,0,-3
+this is from shipping department you,safe,0,-2
+this is from tax services this,safe,0,-2
+this is from the courier service,safe,0,-2
+this is hotel we are delighted,safe,0,-2
+this is hr department your onboarding,safe,0,-3
+this is just a quick reminder,safe,0,-3
+this is just a reminder that,safe,0,-3
+this is landscaping services your garden,safe,0,-2
+this is medical clinic we are,safe,0,-3
+this is mobile network a new,safe,0,-2
+this is music academy just a,safe,0,-2
+this is online store customer service,safe,0,-2
+this is retail your order for,safe,0,-2
+this is s office calling to,safe,0,-2
+this is utilities we are upgrading,safe,0,-2
+this is wellness centre your fitness,safe,0,-2
+this is your professor posting assignment updates,safe,0,-4
+this is your school portal please log in,safe,0,-4
+this is your university email verification notice,safe,0,-4
+please verify your email for school access,safe,0,-4
+reset your password using official school portal,safe,0,-4
+this is your bank sending a monthly statement,safe,0,-3
+this is your bank confirming a scheduled payment,safe,0,-3
+this is your bank notifying you of a deposit,safe,0,-3
+your transaction has been successfully completed,safe,0,-3
+your payment was processed successfully,safe,0,-3
+this is amazon your order has shipped,safe,0,-3
+this is amazon your package has been delivered,safe,0,-3
+this is ups your package has been delivered,safe,0,-3
+this is fedex confirming your delivery,safe,0,-3
+your order has been delivered successfully,safe,0,-3
+this is netflix your subscription has been renewed,safe,0,-3
+this is spotify your payment was received,safe,0,-3
+this is apple your receipt is attached,safe,0,-3
+this is google your account activity summary,safe,0,-3
+this is customer support following up on your request,safe,0,-3
+this is support responding to your inquiry,safe,0,-3
+this is service team confirming your request,safe,0,-3
+this is your friend just checking in,safe,0,-2
+hey are we still on for tonight,safe,0,-2
+let me know when you get this message,safe,0,-2
+text me when you get home safe,safe,0,-2
+just wanted to follow up on our conversation,safe,0,-2
+this is your employer confirming your schedule,safe,0,-3
+this is your manager sending an update,safe,0,-3
+your shift has been updated in the system,safe,0,-3
+this is your appointment reminder for tomorrow,safe,0,-4
+this is a reminder for your scheduled appointment,safe,0,-4
+your appointment has been confirmed,safe,0,-4
+this is your utility bill statement,safe,0,-3
+your bill has been generated for this month,safe,0,-3
+your payment due date is approaching,safe,0,-3
+this is your internet provider scheduled maintenance,safe,0,-3
+this is your service provider notifying you of updates,safe,0,-3
+click here to view your class syllabus,safe,0,-4
+click here to access your student dashboard,safe,0,-4
+click the link to join the meeting,safe,0,-4
+join the zoom meeting using this link,safe,0,-4
+verify your email to access your student account,safe,0,-4
+confirm your attendance for the event,safe,0,-3
+confirm your reservation at the restaurant,safe,0,-3
+this is your ride has arrived,safe,0,-3
+your driver is on the way,safe,0,-3
+your ride has been completed,safe,0,-3
+this is your package out for delivery,safe,0,-3
+your delivery is scheduled for today,safe,0,-3
+this is your subscription reminder before renewal,safe,0,-3
+your subscription will renew automatically,safe,0,-3
+this is your receipt for your recent purchase,safe,0,-3
+thank you for your purchase here is your receipt,safe,0,-3

@@ -11,10 +11,9 @@
 <header class="navbar">
     <div class="logo">Fraud Sense</div>
     <nav>
-        <button class="nav-btn active">Dashboard</button>
-        <button class="nav-btn">Report Scam</button>
-        <button class="nav-btn">Learn</button>
-        <button class="nav-btn">Quizzes</button>
+        <a href="/" class="nav-btn active">Dashboard</a>
+        <a href="/learn.html" class="nav-btn">Learn</a>
+        <a href="/quiz.html" class="nav-btn">Quiz</a>
     </nav>
 </header>
 
@@ -22,49 +21,52 @@
 <div class="container">
 
     <h1>Welcome to Fraud Sense</h1>
-    <p class="subtitle">Your personal platform for detecting, reporting, and learning about scams</p>
+    <p class="subtitle">Your personal platform for detecting and learning about scams</p>
 
     <!-- STATS -->
     <div class="stats">
         <div class="card">
-            <h3>Reports Submitted</h3>
-            <p class="big">0</p>
-        </div>
-
-        <div class="card">
-            <h3>Modules Completed</h3>
-            <p class="big">0/5</p>
-        </div>
-
-        <div class="card">
-            <h3>Community Protection</h3>
-            <p class="big">12.5K</p>
-        </div>
-
-        <div class="card">
-            <h3>Your Awareness</h3>
-            <p class="big">Beginner</p>
+            <h3>Categories Completed</h3>
+            <p class="card-text">
+        Your progress of completed scam awareness modules.
+    </p>
+            <p class="big" id="moduleCount">0/6</p>
         </div>
     </div>
 
     <!-- ACTION CARDS -->
     <div class="actions">
 
+        <!-- ANALYZE BOX -->
         <div class="card large">
-            <h3>Report a Scam</h3>
+            <h3>Detect a Scam</h3>
             <textarea id="input" placeholder="Paste suspicious message here..."></textarea>
+
             <button type="button" class="primary" onclick="analyze()">Analyze</button>
             <button type="button" onclick="clearInput()">Clear</button>
+
+            <!-- FIRST VERSION OF EXAMPLE BUTTON -->
+            <button type="button" class="demo-btn" onclick="fillExample()">
+                Try Example Scam
+            </button>
         </div>
 
+        <!-- LEARN -->
         <div class="card large">
             <h3>Learn About Scams</h3>
-            <button>Start Learning</button>
+            <p class="card-text">
+        Explore common scam types, how they work, and how to recognize warning signs before it’s too late.
+    </p>
+            <a href="/learn.html" class="primary">Start Learning</a>
         </div>
 
+        <!-- QUIZ -->
         <div class="card large">
             <h3>Test Your Knowledge</h3>
-            <button>Take Quiz</button>
+            <p class="card-text">
+        Take interactive quizzes to see how well you can identify scams and improve your awareness.
+    </p>
+            <a href="/quiz.html" class="primary">Take Quiz</a>
         </div>
 
     </div>

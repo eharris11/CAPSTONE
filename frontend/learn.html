@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Learn - Fraud Sense</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">Fraud Sense</div>
+    <nav>
+        <a href="/" class="nav-btn">Dashboard</a>
+        <a href="/learn.html" class="nav-btn active">Learn</a>
+        <a href="/quiz.html" class="nav-btn">Quiz</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h1>Learn About Scams</h1>
+    <p class="subtitle">Understand common scam tactics and how to protect yourself</p>
+
+    <!-- ROW 1 -->
+    <div class="actions">
+
+        <!-- PHISHING -->
+        <div class="card" onclick="toggle('phishing')">
+            <h3>Phishing</h3>
+            <p>Fake emails or messages pretending to be trusted companies.</p>
+
+            <label class="bottom-check" onclick="event.stopPropagation()">
+                <input type="checkbox" class="module-check" data-module="phishing">
+                <span class="checkmark"></span>
+            </label>
+
+            <div id="phishing" class="hidden">
+                <p><strong>Example:</strong> “Your bank account is locked. Click here to verify.”</p>
+                <p><strong>Why it works:</strong> It looks official and urgent.</p>
+                <p><strong>Tip:</strong> Never click links in unexpected emails.</p>
+                <a href="https://consumer.ftc.gov/articles/how-recognize-and-avoid-phishing-scams" target="_blank">Learn more</a>
+            </div>
+        </div>
+
+        <!-- URGENCY -->
+        <div class="card" onclick="toggle('urgency')">
+            <h3>Urgency Tactics</h3>
+            <p>Messages that pressure you to act immediately.</p>
+
+            <label class="bottom-check" onclick="event.stopPropagation()">
+                <input type="checkbox" class="module-check" data-module="urgency">
+                <span class="checkmark"></span>
+            </label>
+
+            <div id="urgency" class="hidden">
+                <p><strong>Example:</strong> “Act now or your account will be deleted.”</p>
+                <p><strong>Why it works:</strong> Panic reduces critical thinking.</p>
+                <p><strong>Tip:</strong> Slow down and verify first.</p>
+                <a href="https://www.fbi.gov/how-we-can-help-you/scams-and-safety" target="_blank">Learn more</a>
+            </div>
+        </div>
+
+        <!-- LINKS -->
+        <div class="card" onclick="toggle('links')">
+            <h3>Suspicious Links</h3>
+            <p>Links that redirect to fake websites.</p>
+
+            <label class="bottom-check" onclick="event.stopPropagation()">
+                <input type="checkbox" class="module-check" data-module="links">
+                <span class="checkmark"></span>
+            </label>
+
+            <div id="links" class="hidden">
+                <p><strong>Example:</strong> “amazon-login-secure.net”</p>
+                <p><strong>Why it works:</strong> Looks similar to real domains.</p>
+                <p><strong>Tip:</strong> Always inspect URLs carefully.</p>
+                <a href="https://www.cisa.gov/news-events/news/avoiding-social-engineering-and-phishing-attacks" target="_blank">Learn more</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ROW 2 -->
+    <div class="actions">
+
+        <!-- IMPERSONATION -->
+        <div class="card" onclick="toggle('impersonation')">
+            <h3>Impersonation Scams</h3>
+            <p>Scammers pretend to be someone you trust.</p>
+
+            <label class="bottom-check" onclick="event.stopPropagation()">
+                <input type="checkbox" class="module-check" data-module="impersonation">
+                <span class="checkmark"></span>
+            </label>
+
+            <div id="impersonation" class="hidden">
+                <p><strong>Example:</strong> “Hi, it’s your boss—buy gift cards for me.”</p>
+                <p><strong>Why it works:</strong> Uses authority and familiarity.</p>
+                <p><strong>Tip:</strong> Always verify through another method.</p>
+                <a href="https://consumer.ftc.gov/consumer-alerts/2022/07/defending-against-impersonator-scams" target="_blank">Learn more</a>
+            </div>
+        </div>
+
+        <!-- LOTTERY -->
+        <div class="card" onclick="toggle('lottery')">
+            <h3>Lottery / Prize Scams</h3>
+            <p>You “win” something you never entered.</p>
+
+            <label class="bottom-check" onclick="event.stopPropagation()">
+                <input type="checkbox" class="module-check" data-module="lottery">
+                <span class="checkmark"></span>
+            </label>
+
+            <div id="lottery" class="hidden">
+                <p><strong>Example:</strong> “You’ve won $10,000! Pay a fee to claim.”</p>
+                <p><strong>Why it works:</strong> Exploits excitement and greed.</p>
+                <p><strong>Tip:</strong> Legit prizes never require payment.</p>
+                <a href="https://consumer.ftc.gov/node/78348" target="_blank">Learn more</a>
+            </div>
+        </div>
+
+        <!-- ROMANCE -->
+        <div class="card" onclick="toggle('romance')">
+            <h3>Romance Scams</h3>
+            <p>Fake relationships used to gain trust and money.</p>
+
+            <label class="bottom-check" onclick="event.stopPropagation()">
+                <input type="checkbox" class="module-check" data-module="romance">
+                <span class="checkmark"></span>
+            </label>
+
+            <div id="romance" class="hidden">
+                <p><strong>Example:</strong> “I need money for an emergency.”</p>
+                <p><strong>Why it works:</strong> Emotional manipulation.</p>
+                <p><strong>Tip:</strong> Never send money to someone you haven’t met.</p>
+                <a href="https://www.fbi.gov/how-we-can-help-you/scams-and-safety/common-scams-and-crimes/romance-scams" target="_blank">Learn more</a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- TOGGLE SCRIPT -->
+<script>
+function toggle(id) {
+    const section = document.getElementById(id);
+    section.classList.toggle("hidden");
+}
+</script>
+
+<!-- PROGRESS SCRIPT -->
+<script src="learn.js"></script>
+
+</body>
+</html>
