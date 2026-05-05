@@ -17,11 +17,11 @@ function getScamType(reasons) {
             scores.Urgency++;
         if (text.includes("link") || text.includes("url") || text.includes("domain"))
             scores.Links++;
-        if (text.includes("imperson") || text.includes("spoof") || text.includes("fake sender"))
+        if (text.includes("imperson") || text.includes("spoof") || text.includes("fake sender") || text.includes("impersonation attempt"))
             scores.Impersonation++;
-        if (text.includes("prize") || text.includes("lottery") || text.includes("reward"))
+        if (text.includes("prize") || text.includes("lottery") || text.includes("reward") || text.includes("prize or reward"))
             scores.Lottery++;
-        if (text.includes("romance") || text.includes("dating") || text.includes("relationship"))
+        if (text.includes("romance") || text.includes("dating") || text.includes("relationship") || text.includes("romance scam"))
             scores.Romance++;
     });
 
@@ -131,8 +131,18 @@ function updateModuleCount() {
     const total = 6;
     let completed = 0;
     for (let key in saved) { if (saved[key]) completed++; }
+
     const el = document.getElementById("moduleCount");
-    if (el) el.innerText = `${completed}/${total}`;
+    if (el) el.innerText = `${completed} / ${total} completed`;
+
+    document.querySelectorAll(".module-pip").forEach(pip => {
+        const name = pip.dataset.module;
+        if (saved[name]) {
+            pip.classList.add("done");
+        } else {
+            pip.classList.remove("done");
+        }
+    });
 }
 
 function fillExample() {

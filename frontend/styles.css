@@ -221,6 +221,71 @@ h3 {
     font-family: 'DM Mono', monospace;
 }
 
+.module-progress-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+}
+
+.module-pip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+    min-width: 64px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 10px 6px 8px;
+    position: relative;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.module-pip.done {
+    background: rgba(99,102,241,0.12);
+    border-color: rgba(99,102,241,0.45);
+}
+
+.pip-icon {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.pip-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    color: var(--text-muted);
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.module-pip.done .pip-label {
+    color: #a5b4fc;
+}
+
+.pip-check {
+    font-size: 11px;
+    font-weight: 700;
+    color: #10b981;
+    opacity: 0;
+    transition: opacity 0.2s;
+    line-height: 1;
+}
+
+.module-pip.done .pip-check {
+    opacity: 1;
+}
+
+.module-count-sub {
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--text-muted);
+    font-family: 'DM Mono', monospace;
+}
+
 textarea {
     width: 100%;
     height: 100px;
@@ -413,10 +478,6 @@ button {
 
 #result { white-space: pre-wrap; font-family: 'Space Grotesk', sans-serif; }
 
-/* =============================================
-   QUIZ PAGE
-   ============================================= */
-
 .quiz-header {
     display: flex;
     justify-content: space-between;
@@ -545,7 +606,6 @@ button {
     box-shadow: 0 6px 20px rgba(99,102,241,0.4);
 }
 
-/* Quiz results */
 .quiz-results-view { text-align: center; padding: 32px 16px 16px; }
 
 .score-circle {
@@ -616,7 +676,6 @@ button {
     color: var(--text-primary);
 }
 
-/* Quiz selector */
 .quiz-selector {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
@@ -650,10 +709,6 @@ button {
     border-style: dashed;
     border-color: rgba(99,102,241,0.3);
 }
-
-/* =============================================
-   LEARN PAGE
-   ============================================= */
 
 .learn-grid {
     display: grid;
@@ -718,7 +773,6 @@ button {
     border-bottom-color: rgba(199,210,254,0.5);
 }
 
-/* checkmark */
 .bottom-check {
     position: absolute;
     bottom: 16px;
@@ -759,9 +813,5 @@ button {
     border-color: var(--green);
     color: white;
 }
-
-/* =============================================
-   UTILITY
-   ============================================= */
 
 .hidden { display: none !important; }

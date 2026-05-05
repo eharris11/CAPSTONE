@@ -74,9 +74,6 @@ const questions = [
 
 ];
 
-/* =============================================
-   ICON MAP
-   ============================================= */
 const typeIcons = {
     Phishing: "🎣",
     Urgency: "⏰",
@@ -86,19 +83,14 @@ const typeIcons = {
     Romance: "💔"
 };
 
-/* =============================================
-   INIT — check URL params
-   ============================================= */
-const params = new URLSearchParams(window.location.search);
-const urlType = params.get("type");
+document.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+    const urlType = params.get("type");
+    if (urlType) {
+        startQuiz(urlType);
+    }
+});
 
-if (urlType) {
-    startQuiz(urlType);
-}
-
-/* =============================================
-   STATE
-   ============================================= */
 let quizQuestions = [];
 let current = 0;
 let score = 0;
@@ -106,9 +98,6 @@ let categoryScores = {};
 let answered = false;
 let activeType = null;
 
-/* =============================================
-   START QUIZ
-   ============================================= */
 function startQuiz(type) {
     activeType = type;
 
@@ -139,9 +128,6 @@ function startQuiz(type) {
     loadQuestion();
 }
 
-/* =============================================
-   LOAD QUESTION
-   ============================================= */
 function loadQuestion() {
     const q = quizQuestions[current];
     const total = quizQuestions.length;
@@ -154,10 +140,14 @@ function loadQuestion() {
     const answersDiv = document.getElementById("answers");
     answersDiv.innerHTML = "";
 
-    q.answers.forEach((answer, index) => {
+    const correctText = q.answers[q.correct];
+    const shuffled = [...q.answers].sort(() => Math.random() - 0.5);
+
+    shuffled.forEach((answer) => {
         const btn = document.createElement("button");
         btn.textContent = answer;
-        btn.onclick = () => checkAnswer(index, btn);
+        const isCorrect = (answer === correctText);
+        btn.onclick = () => checkAnswer(isCorrect, btn, answersDiv);
         answersDiv.appendChild(btn);
     });
 
@@ -169,15 +159,13 @@ function loadQuestion() {
     answered = false;
 }
 
-/* =============================================
-   CHECK ANSWER
-   ============================================= */
-function checkAnswer(index, clickedBtn) {
+function checkAnswer(isCorrect, clickedBtn, answersDiv) {
     if (answered) return;
     answered = true;
 
     const q = quizQuestions[current];
-    const buttons = document.querySelectorAll("#answers button");
+    const correctText = q.answers[q.correct];
+    const buttons = answersDiv.querySelectorAll("button");
 
     if (!categoryScores[q.category]) {
         categoryScores[q.category] = { correct: 0, total: 0 };
@@ -188,14 +176,16 @@ function checkAnswer(index, clickedBtn) {
 
     const feedback = document.getElementById("feedback");
 
-    if (index === q.correct) {
+    if (isCorrect) {
         clickedBtn.classList.add("correct");
         feedback.textContent = `✅ Correct! ${q.explanation}`;
         score++;
         categoryScores[q.category].correct++;
     } else {
         clickedBtn.classList.add("incorrect");
-        buttons[q.correct].classList.add("correct");
+        buttons.forEach(btn => {
+            if (btn.textContent === correctText) btn.classList.add("correct");
+        });
         feedback.textContent = `❌ Not quite. ${q.explanation}`;
     }
 
@@ -206,9 +196,6 @@ function checkAnswer(index, clickedBtn) {
     document.getElementById("progressBar").style.width = pct + "%";
 }
 
-/* =============================================
-   NEXT
-   ============================================= */
 function nextQuestion() {
     current++;
     if (current < quizQuestions.length) {
@@ -218,9 +205,6 @@ function nextQuestion() {
     }
 }
 
-/* =============================================
-   RESULTS
-   ============================================= */
 function showResults() {
     const total = quizQuestions.length;
     const pct = Math.round((score / total) * 100);
@@ -258,5 +242,11 @@ function showResults() {
 }
 
 function retryQuiz() {
+    const quizCard = document.querySelector("#quizView .card");
+    quizCard.innerHTML = `
+        <h3 id="question">Loading…</h3>
+        <div id="answers"></div>
+        <p id="feedback"></p>
+        <button id="nextBtn" onclick="nextQuestion()">Next Question →</button>`;
     startQuiz(activeType);
 }
