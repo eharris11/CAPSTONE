@@ -435,8 +435,28 @@ const questions = [
 ];
 
 /* ================= LIMIT TO 10 RANDOM QUESTIONS ================= */
-questions.sort(() => Math.random() - 0.5);
-const quizQuestions = questions.slice(0, 10);
+const params = new URLSearchParams(window.location.search);
+const selectedType = params.get("type");
+
+let filteredQuestions = questions;
+
+if (selectedType) {
+    filteredQuestions = questions.filter(
+        q => q.category === selectedType
+    );
+}
+
+if (filteredQuestions.length === 0) {
+    filteredQuestions = questions;
+}
+
+filteredQuestions.sort(() => Math.random() - 0.5);
+
+const quizQuestions =
+    filteredQuestions.slice(
+        0,
+        Math.min(10, filteredQuestions.length)
+    );
 
 /* ================= STATE ================= */
 let current = 0;

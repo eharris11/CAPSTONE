@@ -713,3 +713,24 @@ button {
 .result-flex {
     align-items: flex-start;
 }
+
+.quiz-btn {
+    margin-top: 20px;
+    padding: 12px 18px;
+
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+
+    border: none;
+    border-radius: 10px;
+
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.quiz-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(99,102,241,0.4);
+}
