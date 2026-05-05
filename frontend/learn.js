@@ -1,40 +1,29 @@
-const checkboxes = document.querySelectorAll(".module-check");
+
+function toggle(id, event) {
+    const section = document.getElementById(id);
+    section.classList.toggle("open");
+}
 
 window.addEventListener("DOMContentLoaded", () => {
     const saved = JSON.parse(localStorage.getItem("modules")) || {};
 
-    checkboxes.forEach(cb => {
+    document.querySelectorAll(".module-check").forEach(cb => {
         const name = cb.dataset.module;
-        cb.checked = saved[name] || false;
+        if (saved[name]) {
+            cb.checked = true;
+            cb.closest(".card").classList.add("completed");
+        }
+
+        cb.addEventListener("change", () => {
+            const data = JSON.parse(localStorage.getItem("modules")) || {};
+            data[name] = cb.checked;
+            localStorage.setItem("modules", JSON.stringify(data));
+
+            if (cb.checked) {
+                cb.closest(".card").classList.add("completed");
+            } else {
+                cb.closest(".card").classList.remove("completed");
+            }
+        });
     });
-});
-
-checkboxes.forEach(cb => {
-    cb.addEventListener("change", () => {
-        const saved = JSON.parse(localStorage.getItem("modules")) || {};
-        const name = cb.dataset.module;
-
-        saved[name] = cb.checked;
-
-        localStorage.setItem("modules", JSON.stringify(saved));
-    });
-});
-
-if (saved[name]) {
-    cb.checked = true;
-    cb.closest(".card").classList.add("completed");
-}
-
-cb.addEventListener("change", () => {
-    const saved = JSON.parse(localStorage.getItem("modules")) || {};
-    const name = cb.dataset.module;
-
-    saved[name] = cb.checked;
-    localStorage.setItem("modules", JSON.stringify(saved));
-
-    if (cb.checked) {
-        cb.closest(".card").classList.add("completed");
-    } else {
-        cb.closest(".card").classList.remove("completed");
-    }
 });

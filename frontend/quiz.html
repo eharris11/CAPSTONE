@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Quiz - Fraud Sense</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz — Fraud Sense</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -16,22 +19,81 @@
 </header>
 
 <div class="container">
-    <h1>Test Your Knowledge</h1>
 
-    <div class="quiz-top">
-        <p class="subtitle">Can you spot a scam?</p>
-        <p id="progress"></p>
+    <!-- SELECTOR VIEW -->
+    <div id="selectorView">
+        <div class="page-header">
+            <h1>Test Your Knowledge</h1>
+            <p class="subtitle">Choose a scam category to focus on, or take a mixed quiz.</p>
+        </div>
+
+        <div class="quiz-selector">
+            <div class="quiz-type-card" onclick="startQuiz('Phishing')">
+                <span class="type-icon">🎣</span>
+                <div class="type-name">Phishing</div>
+                <div class="type-count">10 questions</div>
+            </div>
+            <div class="quiz-type-card" onclick="startQuiz('Urgency')">
+                <span class="type-icon">⏰</span>
+                <div class="type-name">Urgency Tactics</div>
+                <div class="type-count">10 questions</div>
+            </div>
+            <div class="quiz-type-card" onclick="startQuiz('Links')">
+                <span class="type-icon">🔗</span>
+                <div class="type-name">Suspicious Links</div>
+                <div class="type-count">10 questions</div>
+            </div>
+            <div class="quiz-type-card" onclick="startQuiz('Impersonation')">
+                <span class="type-icon">🎭</span>
+                <div class="type-name">Impersonation</div>
+                <div class="type-count">10 questions</div>
+            </div>
+            <div class="quiz-type-card" onclick="startQuiz('Lottery')">
+                <span class="type-icon">🎰</span>
+                <div class="type-name">Lottery / Prize</div>
+                <div class="type-count">10 questions</div>
+            </div>
+            <div class="quiz-type-card" onclick="startQuiz('Romance')">
+                <span class="type-icon">💔</span>
+                <div class="type-name">Romance Scams</div>
+                <div class="type-count">10 questions</div>
+            </div>
+            <div class="quiz-type-card random-card" onclick="startQuiz(null)">
+                <span class="type-icon">🎲</span>
+                <div class="type-name">Mixed Quiz</div>
+                <div class="type-count">10 random questions</div>
+            </div>
+        </div>
     </div>
 
-    <div class="card">
-        <h3 id="question">Loading...</h3>
-        <div id="answers"></div>
-        <p id="feedback"></p>
-        <button id="nextBtn" onclick="nextQuestion()">Next Question</button>
+    <!-- QUIZ VIEW -->
+    <div id="quizView" class="hidden">
+
+        <div class="quiz-header">
+            <div>
+                <h1 id="quizTitle">Quiz</h1>
+                <p class="subtitle" id="quizSubtitle">Can you spot the scam?</p>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+                <span class="quiz-type-badge" id="typeBadge"></span>
+                <span id="progress"></span>
+            </div>
+        </div>
+
+        <div class="progress-bar-wrap">
+            <div class="progress-bar-fill" id="progressBar" style="width:0%"></div>
+        </div>
+
+        <div class="card">
+            <h3 id="question">Loading…</h3>
+            <div id="answers"></div>
+            <p id="feedback"></p>
+            <button id="nextBtn" onclick="nextQuestion()">Next Question →</button>
+        </div>
     </div>
+
 </div>
 
 <script src="quiz.js"></script>
-
 </body>
 </html>

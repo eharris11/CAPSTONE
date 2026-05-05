@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fraud Sense</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -20,16 +22,17 @@
 <!-- MAIN -->
 <div class="container">
 
-    <h1>Welcome to Fraud Sense</h1>
-    <p class="subtitle">Your personal platform for detecting and learning about scams</p>
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+        <h1>Welcome to Fraud Sense</h1>
+        <p class="subtitle">Your personal platform for detecting and learning about scams</p>
+    </div>
 
-    <!-- STATS -->
-    <div class="stats">
+    <!-- STATS ROW -->
+    <div class="stats-row">
         <div class="card">
-            <h3>Categories Completed</h3>
-            <p class="card-text">
-        Your progress of completed scam awareness modules.
-    </p>
+            <h3>Modules Completed</h3>
+            <p class="card-text">Your scam awareness learning progress.</p>
             <p class="big" id="moduleCount">0/6</p>
         </div>
     </div>
@@ -37,44 +40,48 @@
     <!-- ACTION CARDS -->
     <div class="actions">
 
-        <!-- ANALYZE BOX -->
-        <div class="card large">
-            <h3>Detect a Scam</h3>
-            <textarea id="input" placeholder="Paste suspicious message here..."></textarea>
-
-            <button type="button" class="primary" onclick="analyze()">Analyze</button>
-            <button type="button" onclick="clearInput()">Clear</button>
-
-            <!-- FIRST VERSION OF EXAMPLE BUTTON -->
-            <button type="button" class="demo-btn" onclick="fillExample()">
-                Try Example Scam
-            </button>
+        <!-- ANALYZE -->
+        <div class="card action-card">
+            <div class="card-body">
+                <h3>Detect a Scam</h3>
+                <p class="card-text">Paste any suspicious message and get an instant risk analysis.</p>
+                <textarea id="input" placeholder="Paste suspicious message here…"></textarea>
+            </div>
+            <div class="btn-row">
+                <button class="primary" onclick="analyze()">Analyze</button>
+                <button class="clear-btn" onclick="clearInput()">Clear</button>
+                <button class="demo-btn" onclick="fillExample()">Try Example</button>
+            </div>
         </div>
 
         <!-- LEARN -->
-        <div class="card large">
-            <h3>Learn About Scams</h3>
-            <p class="card-text">
-        Explore common scam types, how they work, and how to recognize warning signs before it’s too late.
-    </p>
-            <a href="/learn.html" class="primary">Start Learning</a>
+        <div class="card action-card">
+            <div class="card-body">
+                <h3>Learn About Scams</h3>
+                <p class="card-text">Explore common scam types, how they work, and how to recognize warning signs before it's too late.</p>
+            </div>
+            <a href="/learn.html" class="primary" style="margin-top:auto;">Start Learning →</a>
         </div>
 
         <!-- QUIZ -->
-        <div class="card large">
-            <h3>Test Your Knowledge</h3>
-            <p class="card-text">
-        Take interactive quizzes to see how well you can identify scams and improve your awareness.
-    </p>
-            <a href="/quiz.html" class="primary">Take Quiz</a>
+        <div class="card action-card">
+            <div class="card-body">
+                <h3>Test Your Knowledge</h3>
+                <p class="card-text">Take targeted quizzes on specific scam types to sharpen your ability to spot fraud.</p>
+            </div>
+            <a href="/quiz.html" class="primary" style="margin-top:auto;">Take a Quiz →</a>
         </div>
 
     </div>
 
-    <!-- RESULT -->
-    <div class="card result">
+    <!-- RESULT SECTION -->
+    <div class="card result-section" id="resultSection">
         <h3>Analysis Result</h3>
-        <pre id="result"></pre>
+        <div class="result-placeholder" id="resultPlaceholder">
+            <span>🔍</span>
+            Paste a message above and click <strong style="color:var(--text-secondary);margin:0 4px;">Analyze</strong> to see your result here.
+        </div>
+        <div id="result"></div>
     </div>
 
 </div>

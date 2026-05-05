@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Learn - Fraud Sense</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn — Fraud Sense</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -16,139 +19,131 @@
 </header>
 
 <div class="container">
-    <h1>Learn About Scams</h1>
-    <p class="subtitle">Understand common scam tactics and how to protect yourself</p>
 
-    <!-- ROW 1 -->
-    <div class="actions">
+    <div class="page-header">
+        <h1>Learn About Scams</h1>
+        <p class="subtitle">Click any card to expand it. Check it off when you feel confident.</p>
+    </div>
+
+    <div class="learn-grid">
 
         <!-- PHISHING -->
-        <div class="card" onclick="toggle('phishing')">
+        <div class="card learn-card" onclick="toggle('phishing', event)">
+            <span class="learn-tag">Module 1</span>
             <h3>Phishing</h3>
-            <p>Fake emails or messages pretending to be trusted companies.</p>
+            <p class="card-desc">Fake emails or messages pretending to be trusted companies to steal your credentials.</p>
+
+            <div id="phishing" class="learn-expand">
+                <p><strong>Example:</strong> "Your bank account is locked. Click here to verify your identity."</p>
+                <p><strong>Why it works:</strong> It looks official and creates urgency, making you react before thinking.</p>
+                <p><strong>Protect yourself:</strong> Never click links in unexpected emails. Go directly to the official site.</p>
+                <a href="https://consumer.ftc.gov/articles/how-recognize-and-avoid-phishing-scams" target="_blank">Read more on FTC.gov ↗</a>
+            </div>
 
             <label class="bottom-check" onclick="event.stopPropagation()">
                 <input type="checkbox" class="module-check" data-module="phishing">
-                <span class="checkmark"></span>
+                <span class="checkmark">✓</span>
             </label>
-
-            <div id="phishing" class="hidden">
-                <p><strong>Example:</strong> “Your bank account is locked. Click here to verify.”</p>
-                <p><strong>Why it works:</strong> It looks official and urgent.</p>
-                <p><strong>Tip:</strong> Never click links in unexpected emails.</p>
-                <a href="https://consumer.ftc.gov/articles/how-recognize-and-avoid-phishing-scams" target="_blank">Learn more</a>
-            </div>
         </div>
 
         <!-- URGENCY -->
-        <div class="card" onclick="toggle('urgency')">
+        <div class="card learn-card" onclick="toggle('urgency', event)">
+            <span class="learn-tag">Module 2</span>
             <h3>Urgency Tactics</h3>
-            <p>Messages that pressure you to act immediately.</p>
+            <p class="card-desc">Pressure messages designed to make you act immediately without thinking.</p>
+
+            <div id="urgency" class="learn-expand">
+                <p><strong>Example:</strong> "Act now or your account will be permanently deleted in 24 hours."</p>
+                <p><strong>Why it works:</strong> Panic and fear bypass rational thinking.</p>
+                <p><strong>Protect yourself:</strong> Slow down. Legitimate organizations give you time. Verify independently.</p>
+                <a href="https://www.fbi.gov/how-we-can-help-you/scams-and-safety" target="_blank">Read more on FBI.gov ↗</a>
+            </div>
 
             <label class="bottom-check" onclick="event.stopPropagation()">
                 <input type="checkbox" class="module-check" data-module="urgency">
-                <span class="checkmark"></span>
+                <span class="checkmark">✓</span>
             </label>
-
-            <div id="urgency" class="hidden">
-                <p><strong>Example:</strong> “Act now or your account will be deleted.”</p>
-                <p><strong>Why it works:</strong> Panic reduces critical thinking.</p>
-                <p><strong>Tip:</strong> Slow down and verify first.</p>
-                <a href="https://www.fbi.gov/how-we-can-help-you/scams-and-safety" target="_blank">Learn more</a>
-            </div>
         </div>
 
-        <!-- LINKS -->
-        <div class="card" onclick="toggle('links')">
+        <!-- SUSPICIOUS LINKS -->
+        <div class="card learn-card" onclick="toggle('links', event)">
+            <span class="learn-tag">Module 3</span>
             <h3>Suspicious Links</h3>
-            <p>Links that redirect to fake websites.</p>
+            <p class="card-desc">Links that redirect you to fake websites designed to look like real ones.</p>
+
+            <div id="links" class="learn-expand">
+                <p><strong>Example:</strong> "amazon-secure-login.net" instead of amazon.com</p>
+                <p><strong>Why it works:</strong> URLs can look nearly identical to legitimate domains.</p>
+                <p><strong>Protect yourself:</strong> Always hover over links before clicking. Look for HTTPS and exact domain spelling.</p>
+                <a href="https://www.cisa.gov/news-events/news/avoiding-social-engineering-and-phishing-attacks" target="_blank">Read more on CISA.gov ↗</a>
+            </div>
 
             <label class="bottom-check" onclick="event.stopPropagation()">
                 <input type="checkbox" class="module-check" data-module="links">
-                <span class="checkmark"></span>
+                <span class="checkmark">✓</span>
             </label>
-
-            <div id="links" class="hidden">
-                <p><strong>Example:</strong> “amazon-login-secure.net”</p>
-                <p><strong>Why it works:</strong> Looks similar to real domains.</p>
-                <p><strong>Tip:</strong> Always inspect URLs carefully.</p>
-                <a href="https://www.cisa.gov/news-events/news/avoiding-social-engineering-and-phishing-attacks" target="_blank">Learn more</a>
-            </div>
         </div>
 
-    </div>
-
-    <!-- ROW 2 -->
-    <div class="actions">
-
         <!-- IMPERSONATION -->
-        <div class="card" onclick="toggle('impersonation')">
+        <div class="card learn-card" onclick="toggle('impersonation', event)">
+            <span class="learn-tag">Module 4</span>
             <h3>Impersonation Scams</h3>
-            <p>Scammers pretend to be someone you trust.</p>
+            <p class="card-desc">Scammers pretend to be someone you trust — a boss, bank, or government agency.</p>
+
+            <div id="impersonation" class="learn-expand">
+                <p><strong>Example:</strong> "Hi, it's your CEO — please buy $500 in gift cards and send me the codes."</p>
+                <p><strong>Why it works:</strong> Authority and familiarity lower your guard.</p>
+                <p><strong>Protect yourself:</strong> Always verify unusual requests through a separate, trusted channel.</p>
+                <a href="https://consumer.ftc.gov/consumer-alerts/2022/07/defending-against-impersonator-scams" target="_blank">Read more on FTC.gov ↗</a>
+            </div>
 
             <label class="bottom-check" onclick="event.stopPropagation()">
                 <input type="checkbox" class="module-check" data-module="impersonation">
-                <span class="checkmark"></span>
+                <span class="checkmark">✓</span>
             </label>
-
-            <div id="impersonation" class="hidden">
-                <p><strong>Example:</strong> “Hi, it’s your boss—buy gift cards for me.”</p>
-                <p><strong>Why it works:</strong> Uses authority and familiarity.</p>
-                <p><strong>Tip:</strong> Always verify through another method.</p>
-                <a href="https://consumer.ftc.gov/consumer-alerts/2022/07/defending-against-impersonator-scams" target="_blank">Learn more</a>
-            </div>
         </div>
 
         <!-- LOTTERY -->
-        <div class="card" onclick="toggle('lottery')">
-            <h3>Lottery / Prize Scams</h3>
-            <p>You “win” something you never entered.</p>
+        <div class="card learn-card" onclick="toggle('lottery', event)">
+            <span class="learn-tag">Module 5</span>
+            <h3>Lottery &amp; Prize Scams</h3>
+            <p class="card-desc">You "win" a prize for a contest you never entered — but must pay a fee to claim it.</p>
+
+            <div id="lottery" class="learn-expand">
+                <p><strong>Example:</strong> "Congratulations! You've won $10,000. Pay $200 processing fee to claim."</p>
+                <p><strong>Why it works:</strong> Excitement and greed can override skepticism.</p>
+                <p><strong>Protect yourself:</strong> Legitimate prizes never require upfront payment. If you didn't enter, you didn't win.</p>
+                <a href="https://consumer.ftc.gov/node/78348" target="_blank">Read more on FTC.gov ↗</a>
+            </div>
 
             <label class="bottom-check" onclick="event.stopPropagation()">
                 <input type="checkbox" class="module-check" data-module="lottery">
-                <span class="checkmark"></span>
+                <span class="checkmark">✓</span>
             </label>
-
-            <div id="lottery" class="hidden">
-                <p><strong>Example:</strong> “You’ve won $10,000! Pay a fee to claim.”</p>
-                <p><strong>Why it works:</strong> Exploits excitement and greed.</p>
-                <p><strong>Tip:</strong> Legit prizes never require payment.</p>
-                <a href="https://consumer.ftc.gov/node/78348" target="_blank">Learn more</a>
-            </div>
         </div>
 
         <!-- ROMANCE -->
-        <div class="card" onclick="toggle('romance')">
+        <div class="card learn-card" onclick="toggle('romance', event)">
+            <span class="learn-tag">Module 6</span>
             <h3>Romance Scams</h3>
-            <p>Fake relationships used to gain trust and money.</p>
+            <p class="card-desc">Fake online relationships built over time to gain trust, then exploit you for money.</p>
+
+            <div id="romance" class="learn-expand">
+                <p><strong>Example:</strong> "I need $300 for a plane ticket to come see you — there was an emergency."</p>
+                <p><strong>Why it works:</strong> Deep emotional investment makes it hard to stay skeptical.</p>
+                <p><strong>Protect yourself:</strong> Never send money to someone you haven't met in person. Use reverse image search on their photos.</p>
+                <a href="https://www.fbi.gov/how-we-can-help-you/scams-and-safety/common-scams-and-crimes/romance-scams" target="_blank">Read more on FBI.gov ↗</a>
+            </div>
 
             <label class="bottom-check" onclick="event.stopPropagation()">
                 <input type="checkbox" class="module-check" data-module="romance">
-                <span class="checkmark"></span>
+                <span class="checkmark">✓</span>
             </label>
-
-            <div id="romance" class="hidden">
-                <p><strong>Example:</strong> “I need money for an emergency.”</p>
-                <p><strong>Why it works:</strong> Emotional manipulation.</p>
-                <p><strong>Tip:</strong> Never send money to someone you haven’t met.</p>
-                <a href="https://www.fbi.gov/how-we-can-help-you/scams-and-safety/common-scams-and-crimes/romance-scams" target="_blank">Learn more</a>
-            </div>
         </div>
 
     </div>
-
 </div>
 
-<!-- TOGGLE SCRIPT -->
-<script>
-function toggle(id) {
-    const section = document.getElementById(id);
-    section.classList.toggle("hidden");
-}
-</script>
-
-<!-- PROGRESS SCRIPT -->
 <script src="learn.js"></script>
-
 </body>
 </html>

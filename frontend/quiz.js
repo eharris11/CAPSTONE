@@ -1,523 +1,216 @@
 const questions = [
 
 /* ================= PHISHING ================= */
-{
-    category: "Phishing",
-    question: "You receive an email from your bank asking you to log in through a link. What should you do?",
-    answers: ["Click the link immediately", "Ignore it", "Go to the bank website manually"],
-    correct: 2,
-    explanation: "Always go directly to official websites instead of clicking email links."
-},
-{
-    category: "Phishing",
-    question: "Which is a sign of phishing?",
-    answers: ["Personalized greeting", "Unexpected request for sensitive info", "Proper grammar"],
-    correct: 1,
-    explanation: "Unexpected requests for sensitive info are a major red flag."
-},
-{
-    category: "Phishing",
-    question: "A message asks for your password to fix an issue. What is this?",
-    answers: ["Normal support request", "Phishing attempt", "Security check"],
-    correct: 1,
-    explanation: "Legitimate companies never ask for passwords."
-},
-{
-    category: "Phishing",
-    question: "Phishing emails often try to make you:",
-    answers: ["Relax", "Provide personal info", "Ignore messages"],
-    correct: 1,
-    explanation: "They aim to trick you into giving sensitive information."
-},
-{
-    category: "Phishing",
-    question: "Which is safest when receiving a suspicious email?",
-    answers: ["Reply directly", "Click link", "Go to official site manually"],
-    correct: 2,
-    explanation: "Always navigate manually to trusted websites."
-},
-{
-    category: "Phishing",
-    question: "Phishing messages often include:",
-    answers: ["Jokes", "Unexpected links", "Friendly greetings only"],
-    correct: 1,
-    explanation: "Links are often used to redirect you to fake sites."
-},
-{
-    category: "Phishing",
-    question: "What should you do with suspicious attachments?",
-    answers: ["Open immediately", "Delete or scan", "Forward to friends"],
-    correct: 1,
-    explanation: "Attachments may contain malware."
-},
-{
-    category: "Phishing",
-    question: "Phishing attempts often impersonate:",
-    answers: ["Friends only", "Trusted organizations", "Random strangers only"],
-    correct: 1,
-    explanation: "They pretend to be banks, companies, etc."
-},
-{
-    category: "Phishing",
-    question: "Emails asking for login credentials are usually:",
-    answers: ["Safe", "Phishing", "Updates"],
-    correct: 1,
-    explanation: "Credential requests are a major red flag."
-},
-{
-    category: "Phishing",
-    question: "What is a common phishing goal?",
-    answers: ["Help you", "Steal data", "Improve service"],
-    correct: 1,
-    explanation: "Phishing aims to steal sensitive data."
-},
+{ category:"Phishing", question:"You receive an email from your bank asking you to log in through a link. What should you do?", answers:["Click the link immediately","Ignore it","Go to the bank website manually"], correct:2, explanation:"Always navigate directly to official websites rather than clicking links in emails." },
+{ category:"Phishing", question:"Which is a red flag for phishing?", answers:["A personalized greeting","An unexpected request for sensitive info","Proper grammar and spelling"], correct:1, explanation:"Unexpected requests for sensitive info are a major warning sign." },
+{ category:"Phishing", question:"A message asks for your password to fix an issue. What is this likely?", answers:["Normal support request","A phishing attempt","A routine security check"], correct:1, explanation:"Legitimate companies never ask for your password." },
+{ category:"Phishing", question:"Phishing emails are primarily designed to make you:", answers:["Feel relaxed","Provide personal information","Delete your account"], correct:1, explanation:"They aim to trick you into giving sensitive information." },
+{ category:"Phishing", question:"Which action is safest when you receive a suspicious email?", answers:["Reply and ask if it is real","Click the link to investigate","Go to the official site manually"], correct:2, explanation:"Always navigate manually to trusted websites." },
+{ category:"Phishing", question:"Phishing messages commonly include:", answers:["Personalized account history","Unexpected links or attachments","Accurate company contact details"], correct:1, explanation:"Links and attachments redirect you to fake sites or install malware." },
+{ category:"Phishing", question:"What should you do with suspicious email attachments?", answers:["Open immediately to check","Delete or scan with antivirus","Forward to coworkers"], correct:1, explanation:"Attachments may contain malware." },
+{ category:"Phishing", question:"Phishing attempts most often impersonate:", answers:["Random strangers","Trusted organizations like banks","Celebrities"], correct:1, explanation:"They pose as trusted institutions to seem credible." },
+{ category:"Phishing", question:"Emails asking for login credentials are almost always:", answers:["Safe and routine","Phishing attempts","System updates"], correct:1, explanation:"Credential requests via email are a major red flag." },
+{ category:"Phishing", question:"What is the ultimate goal of most phishing attacks?", answers:["To help you reset your password","To steal your personal data","To improve their service"], correct:1, explanation:"Phishing is designed to steal sensitive data." },
 
 /* ================= URGENCY ================= */
-{
-    category: "Urgency",
-    question: "A message says 'Act now or lose access forever!' What tactic is this?",
-    answers: ["Helpful reminder", "Urgency tactic", "Routine update"],
-    correct: 1,
-    explanation: "Scammers use urgency to pressure quick decisions."
-},
-{
-    category: "Urgency",
-    question: "Why do scammers use urgency?",
-    answers: ["To help users act faster", "To reduce thinking time", "To improve security"],
-    correct: 1,
-    explanation: "Urgency reduces critical thinking."
-},
-{
-    category: "Urgency",
-    question: "Best response to urgent messages?",
-    answers: ["Act immediately", "Verify first", "Ignore everything"],
-    correct: 1,
-    explanation: "Always verify before acting."
-},
-{
-    category: "Urgency",
-    question: "Urgent scam messages often say:",
-    answers: ["Take your time", "Act immediately", "Ignore this"],
-    correct: 1,
-    explanation: "They push you to act quickly."
-},
-{
-    category: "Urgency",
-    question: "Why is urgency dangerous?",
-    answers: ["It slows decisions", "It causes panic", "It helps security"],
-    correct: 1,
-    explanation: "Panic reduces logical thinking."
-},
-{
-    category: "Urgency",
-    question: "Best reaction to urgent threats?",
-    answers: ["Respond instantly", "Verify calmly", "Delete everything"],
-    correct: 1,
-    explanation: "Stay calm and verify."
-},
-{
-    category: "Urgency",
-    question: "Urgency is used to:",
-    answers: ["Help you", "Trick you quickly", "Save time"],
-    correct: 1,
-    explanation: "It’s used to manipulate behavior."
-},
-{
-    category: "Urgency",
-    question: "Scammers want you to avoid:",
-    answers: ["Acting fast", "Thinking critically", "Reading messages"],
-    correct: 1,
-    explanation: "They want you to act without thinking."
-},
-{
-    category: "Urgency",
-    question: "A message says your account will be locked in 5 minutes. You should:",
-    answers: ["Click immediately", "Pause and verify", "Ignore permanently"],
-    correct: 1,
-    explanation: "Verify through official channels."
-},
-{
-    category: "Urgency",
-    question: "Urgency scams rely on:",
-    answers: ["Logic", "Fear and pressure", "Facts"],
-    correct: 1,
-    explanation: "Fear drives poor decisions."
-},
+{ category:"Urgency", question:"A message says 'Act now or lose access forever!' What tactic is this?", answers:["A helpful reminder","An urgency/pressure tactic","A routine update notification"], correct:1, explanation:"Scammers use urgency to pressure you into quick, unconsidered actions." },
+{ category:"Urgency", question:"Why do scammers create a sense of urgency?", answers:["To help users act faster","To reduce your thinking time","To improve account security"], correct:1, explanation:"Urgency bypasses your critical thinking." },
+{ category:"Urgency", question:"What is the best response to an urgent message demanding action?", answers:["Act immediately","Verify through official channels first","Ignore everything"], correct:1, explanation:"Always verify before acting, no matter how urgent it seems." },
+{ category:"Urgency", question:"Urgent scam messages often contain phrases like:", answers:["Take your time with this","Act immediately or face consequences","This is not time sensitive"], correct:1, explanation:"They push you to act quickly without thinking." },
+{ category:"Urgency", question:"Why is urgency particularly dangerous in scams?", answers:["It slows down decision-making","It triggers fear and panic","It improves response accuracy"], correct:1, explanation:"Panic and fear reduce logical thinking." },
+{ category:"Urgency", question:"Best reaction to a message threatening consequences in minutes?", answers:["Respond instantly by clicking","Pause, breathe, and verify calmly","Delete all your accounts"], correct:1, explanation:"Stay calm and verify through official channels." },
+{ category:"Urgency", question:"Scammers use urgency primarily to:", answers:["Help you solve a real problem","Manipulate you into acting without thinking","Save you time"], correct:1, explanation:"It is a manipulation tactic." },
+{ category:"Urgency", question:"What do scammers most want you to avoid doing?", answers:["Acting quickly","Thinking critically about the message","Reading the message carefully"], correct:1, explanation:"They want you to act without thinking." },
+{ category:"Urgency", question:"A message says your account will be deleted in 5 minutes. You should:", answers:["Click the provided link immediately","Pause and contact the company directly","Ignore it permanently"], correct:1, explanation:"Verify through official channels, not through the message's link." },
+{ category:"Urgency", question:"Urgency-based scams rely primarily on:", answers:["Logic and clear facts","Fear, panic, and pressure","Detailed account information"], correct:1, explanation:"Fear drives poor, hasty decisions." },
 
 /* ================= LINKS ================= */
-{
-    category: "Links",
-    question: "Which link is suspicious?",
-    answers: ["amazon.com", "secure-amazon-login.net", "google.com"],
-    correct: 1,
-    explanation: "Fake domains mimic real ones."
-},
-{
-    category: "Links",
-    question: "Before clicking a link, you should:",
-    answers: ["Click quickly", "Check the URL", "Ignore all links"],
-    correct: 1,
-    explanation: "Always inspect links carefully."
-},
-{
-    category: "Links",
-    question: "Shortened links can be dangerous because:",
-    answers: ["They are always safe", "They hide the destination", "They load faster"],
-    correct: 1,
-    explanation: "Shortened links hide where they go."
-},
-{
-    category: "Links",
-    question: "Fake websites often:",
-    answers: ["Look identical", "Have obvious warnings", "Don’t load"],
-    correct: 0,
-    explanation: "They are designed to look real."
-},
-{
-    category: "Links",
-    question: "A secure website should start with:",
-    answers: ["http://", "https://", "ftp://"],
-    correct: 1,
-    explanation: "HTTPS indicates encryption."
-},
-{
-    category: "Links",
-    question: "Misspelled domain names are:",
-    answers: ["Safe", "Suspicious", "Normal"],
-    correct: 1,
-    explanation: "Misspellings are common scam tactics."
-},
-{
-    category: "Links",
-    question: "Hovering over a link shows:",
-    answers: ["Nothing", "Destination URL", "Password"],
-    correct: 1,
-    explanation: "It reveals the real destination."
-},
-{
-    category: "Links",
-    question: "Bit.ly links can:",
-    answers: ["Always be trusted", "Hide malicious sites", "Speed up internet"],
-    correct: 1,
-    explanation: "They hide the real URL."
-},
-{
-    category: "Links",
-    question: "Links from unknown senders should be:",
-    answers: ["Clicked", "Ignored or checked", "Shared"],
-    correct: 1,
-    explanation: "Always verify before clicking."
-},
-{
-    category: "Links",
-    question: "Fake login pages are used to:",
-    answers: ["Help users", "Steal credentials", "Fix accounts"],
-    correct: 1,
-    explanation: "They steal your login info."
-},
+{ category:"Links", question:"Which of these links looks suspicious?", answers:["amazon.com","secure-amazon-login.net","google.com"], correct:1, explanation:"Fake domains mimic real ones to trick you." },
+{ category:"Links", question:"Before clicking any link you should:", answers:["Click it quickly to see where it goes","Inspect the URL carefully first","Ignore all links by default"], correct:1, explanation:"Always inspect links before clicking." },
+{ category:"Links", question:"Shortened links (like bit.ly) can be dangerous because:", answers:["They are always tracked by hackers","They hide the real destination URL","They load slower than normal links"], correct:1, explanation:"Shortened links conceal where they actually lead." },
+{ category:"Links", question:"Fake websites designed to steal credentials often:", answers:["Look identical to the real site","Have obvious spelling mistakes","Fail to load at all"], correct:0, explanation:"They are carefully designed to look real." },
+{ category:"Links", question:"A secure website URL should begin with:", answers:["http://","https://","ftp://"], correct:1, explanation:"HTTPS indicates an encrypted connection." },
+{ category:"Links", question:"Misspelled domain names in a URL are:", answers:["A normal company practice","A common scam tactic","Always harmless"], correct:1, explanation:"Typosquatting is a well-known scam technique." },
+{ category:"Links", question:"Hovering over a link (without clicking) shows you:", answers:["Nothing useful","The real destination URL","Your browser history"], correct:1, explanation:"Hovering reveals the actual URL in most browsers." },
+{ category:"Links", question:"Links from unknown senders should be:", answers:["Clicked to verify they are safe","Ignored or manually checked","Forwarded to others"], correct:1, explanation:"Always verify before clicking links from unknown sources." },
+{ category:"Links", question:"Fake login pages are primarily used to:", answers:["Help you reset a password","Steal your login credentials","Speed up account access"], correct:1, explanation:"They capture your username and password." },
+{ category:"Links", question:"Which is the safest way to visit a site mentioned in a suspicious email?", answers:["Click the link in the email","Search for it manually in your browser","Reply asking for a safer link"], correct:1, explanation:"Always navigate manually through a search or saved bookmark." },
 
 /* ================= IMPERSONATION ================= */
-{
-    category: "Impersonation",
-    question: "Your boss texts asking for gift cards urgently. What should you do?",
-    answers: ["Send immediately", "Verify identity", "Ignore forever"],
-    correct: 1,
-    explanation: "Always verify unusual requests."
-},
-{
-    category: "Impersonation",
-    question: "Impersonation scams rely on:",
-    answers: ["Trust and authority", "Random guessing", "Luck"],
-    correct: 0,
-    explanation: "Authority increases believability."
-},
-{
-    category: "Impersonation",
-    question: "Someone claims to be tech support and asks for access. What is this?",
-    answers: ["Normal support", "Impersonation scam", "Software update"],
-    correct: 1,
-    explanation: "This is a common impersonation tactic."
-},
-{
-    category: "Impersonation",
-    question: "Impersonators often pretend to be:",
-    answers: ["Celebrities only", "Trusted figures", "Strangers"],
-    correct: 1,
-    explanation: "They exploit trust."
-},
-{
-    category: "Impersonation",
-    question: "A scammer posing as IT support wants:",
-    answers: ["To help", "Access to your system", "Feedback"],
-    correct: 1,
-    explanation: "They want control of your system."
-},
-{
-    category: "Impersonation",
-    question: "Unexpected requests from coworkers should be:",
-    answers: ["Trusted", "Verified", "Ignored"],
-    correct: 1,
-    explanation: "Always verify unusual requests."
-},
-{
-    category: "Impersonation",
-    question: "Impersonation scams use:",
-    answers: ["Authority", "Random guessing", "Luck"],
-    correct: 0,
-    explanation: "Authority is used to manipulate."
-},
-{
-    category: "Impersonation",
-    question: "A fake company email is an example of:",
-    answers: ["Phishing", "Impersonation", "Spam"],
-    correct: 1,
-    explanation: "It pretends to be a real company."
-},
-{
-    category: "Impersonation",
-    question: "Best defense against impersonation?",
-    answers: ["Trust quickly", "Verify identity", "Ignore everything"],
-    correct: 1,
-    explanation: "Verification is key."
-},
-{
-    category: "Impersonation",
-    question: "Impersonation scams often request:",
-    answers: ["Information or money", "Jokes", "News"],
-    correct: 0,
-    explanation: "They want sensitive data or money."
-},
+{ category:"Impersonation", question:"Your boss texts asking you to buy gift cards urgently. What should you do?", answers:["Buy and send them immediately","Call your boss on a known number to verify","Ignore the message permanently"], correct:1, explanation:"Always verify unusual requests through a separate, trusted channel." },
+{ category:"Impersonation", question:"Impersonation scams work primarily because they exploit:", answers:["Trust and perceived authority","Random guessing","Luck"], correct:0, explanation:"People are more likely to comply with perceived authority figures." },
+{ category:"Impersonation", question:"Someone claims to be IT support and requests remote access to your computer. This is likely:", answers:["Normal IT procedure","An impersonation scam","A software update request"], correct:1, explanation:"Unsolicited tech support requests are a classic impersonation tactic." },
+{ category:"Impersonation", question:"Who do impersonators most commonly pretend to be?", answers:["Random strangers","Trusted figures like bosses, banks, or government agencies","Celebrities only"], correct:1, explanation:"They exploit the trust you have in authority figures." },
+{ category:"Impersonation", question:"An unexpected request from someone claiming to be a coworker should be:", answers:["Immediately trusted","Verified through official means","Always ignored"], correct:1, explanation:"Always verify unusual requests regardless of who they seem to come from." },
+{ category:"Impersonation", question:"A fake company email asking for your credentials is an example of:", answers:["A phishing/impersonation combo attack","Normal company policy","A security alert"], correct:0, explanation:"It combines phishing techniques with impersonation." },
+{ category:"Impersonation", question:"The best defense against impersonation scams is:", answers:["Trust quickly to seem cooperative","Verify identity through a separate trusted channel","Ignore all digital communication"], correct:1, explanation:"Independent verification is the key defense." },
+{ category:"Impersonation", question:"Impersonation scams most often request:", answers:["Money or sensitive information","Jokes and casual conversation","Public news articles"], correct:0, explanation:"The goal is always to extract money or data." },
+{ category:"Impersonation", question:"A scammer posing as your bank calls asking for your PIN. You should:", answers:["Provide it to confirm your identity","Hang up and call the bank directly","Give the last few digits only"], correct:1, explanation:"Hang up and call back using the number on your card or the bank website." },
+{ category:"Impersonation", question:"Impersonation scams are most dangerous because:", answers:["They use technical hacking tools","They exploit your existing trust in real institutions","They are very easy to detect"], correct:1, explanation:"Using a familiar identity lowers your guard." },
 
 /* ================= LOTTERY ================= */
-{
-    category: "Lottery",
-    question: "You win a prize but must pay a fee. What is this?",
-    answers: ["Legitimate prize", "Lottery scam", "Promotion"],
-    correct: 1,
-    explanation: "Real prizes don’t require payment."
-},
-{
-    category: "Lottery",
-    question: "Real lotteries usually:",
-    answers: ["Ask for fees upfront", "Contact you randomly", "Do not require payment to claim"],
-    correct: 2,
-    explanation: "Legitimate winnings don’t require fees."
-},
-{
-    category: "Lottery",
-    question: "Winning something you never entered is:",
-    answers: ["Lucky", "Suspicious", "Normal"],
-    correct: 1,
-    explanation: "Unexpected wins are suspicious."
-},
-{
-    category: "Lottery",
-    question: "Prize scams often require:",
-    answers: ["No action", "Upfront payment", "Verification only"],
-    correct: 1,
-    explanation: "Fees are a major red flag."
-},
-{
-    category: "Lottery",
-    question: "Unexpected winnings are usually:",
-    answers: ["Real", "Suspicious", "Guaranteed"],
-    correct: 1,
-    explanation: "They are usually scams."
-},
-{
-    category: "Lottery",
-    question: "Scammers promise prizes to:",
-    answers: ["Help you", "Trick you", "Reward loyalty"],
-    correct: 1,
-    explanation: "It’s a manipulation tactic."
-},
-{
-    category: "Lottery",
-    question: "Legitimate contests:",
-    answers: ["Charge fees", "Require entry", "Call randomly"],
-    correct: 1,
-    explanation: "You must enter to win."
-},
-{
-    category: "Lottery",
-    question: "Winning emails asking for fees are:",
-    answers: ["Safe", "Scams", "Promotions"],
-    correct: 1,
-    explanation: "They are scams."
-},
-{
-    category: "Lottery",
-    question: "Prize scams target:",
-    answers: ["Only businesses", "Anyone", "Only experts"],
-    correct: 1,
-    explanation: "Anyone can be targeted."
-},
-{
-    category: "Lottery",
-    question: "Best response to prize scams:",
-    answers: ["Pay quickly", "Ignore/report", "Reply"],
-    correct: 1,
-    explanation: "Never engage with scammers."
-},
+{ category:"Lottery", question:"You receive an email saying you won a prize but must pay a fee to claim it. This is:", answers:["A legitimate prize","A lottery/advance fee scam","A special promotion"], correct:1, explanation:"Real prizes never require upfront payment to claim." },
+{ category:"Lottery", question:"Legitimate prize drawings usually:", answers:["Ask winners to pay fees upfront","Contact random people who never entered","Do not require any payment to claim winnings"], correct:2, explanation:"Legitimate winnings do not come with fees." },
+{ category:"Lottery", question:"Winning a prize for a contest you never entered is:", answers:["Very lucky","Almost certainly a scam","A common marketing practice"], correct:1, explanation:"You cannot win something you never entered." },
+{ category:"Lottery", question:"Prize scams almost always require:", answers:["Nothing — just your address","An upfront payment or fee","Only identity verification"], correct:1, explanation:"The upfront fee is how scammers profit." },
+{ category:"Lottery", question:"Unexpected winning notifications are most likely:", answers:["Real and worth claiming","Scams designed to steal money","Government-approved promotions"], correct:1, explanation:"Unexpected winning messages are almost always scams." },
+{ category:"Lottery", question:"Scammers use fake prize promises to:", answers:["Genuinely reward customers","Trick people into sending money or info","Promote real businesses"], correct:1, explanation:"It is purely a manipulation tactic." },
+{ category:"Lottery", question:"Legitimate contests and sweepstakes:", answers:["Charge an entry fee","Require you to actually enter or be selected","Call random phone numbers"], correct:1, explanation:"You must have entered to win something legitimate." },
+{ category:"Lottery", question:"An email saying you won $50,000 but owe $500 in processing fees is:", answers:["A government-sponsored lottery","An advance-fee scam","A tax refund notice"], correct:1, explanation:"This is a textbook advance-fee / lottery scam." },
+{ category:"Lottery", question:"Prize scams can target:", answers:["Only elderly people","Anyone regardless of age or background","Only people who play lotteries"], correct:1, explanation:"Anyone can be targeted." },
+{ category:"Lottery", question:"The best response to a suspicious prize notification is:", answers:["Pay the fee immediately to secure the prize","Ignore it and report it if possible","Reply to confirm your interest"], correct:1, explanation:"Never engage — ignore and report." },
 
 /* ================= ROMANCE ================= */
-{
-    category: "Romance",
-    question: "Someone online builds a relationship then asks for money. What is this?",
-    answers: ["Romance scam", "Friendship", "Charity"],
-    correct: 0,
-    explanation: "Romance scams use emotional manipulation."
-},
-{
-    category: "Romance",
-    question: "Romance scammers often:",
-    answers: ["Meet quickly", "Avoid meeting in person", "Share everything"],
-    correct: 1,
-    explanation: "They avoid real-life contact."
-},
-{
-    category: "Romance",
-    question: "Best way to avoid romance scams?",
-    answers: ["Send small money", "Trust immediately", "Never send money to strangers"],
-    correct: 2,
-    explanation: "Never send money to people you haven’t met."
-},
-{
-    category: "Romance",
-    question: "Romance scammers often avoid:",
-    answers: ["Talking", "Meeting in person", "Messaging"],
-    correct: 1,
-    explanation: "They avoid real-world interaction."
-},
-{
-    category: "Romance",
-    question: "They build trust to:",
-    answers: ["Help you", "Ask for money", "Make friends"],
-    correct: 1,
-    explanation: "Trust is used to manipulate."
-},
-{
-    category: "Romance",
-    question: "Common excuse for money requests:",
-    answers: ["Emergency", "Vacation", "Shopping"],
-    correct: 0,
-    explanation: "Emergencies are commonly used."
-},
-{
-    category: "Romance",
-    question: "Profiles with perfect photos are:",
-    answers: ["Always real", "Possibly fake", "Verified"],
-    correct: 1,
-    explanation: "They may be stolen images."
-},
-{
-    category: "Romance",
-    question: "Romance scams often happen on:",
-    answers: ["Dating apps", "Banks only", "Government sites"],
-    correct: 0,
-    explanation: "Dating platforms are common targets."
-},
-{
-    category: "Romance",
-    question: "Best protection is:",
-    answers: ["Send small money", "Verify identity", "Trust quickly"],
-    correct: 1,
-    explanation: "Always verify identities."
-},
-{
-    category: "Romance",
-    question: "If someone asks for money early:",
-    answers: ["Send it", "Be cautious", "Ignore warning signs"],
-    correct: 1,
-    explanation: "Early money requests are suspicious."
-}
+{ category:"Romance", question:"Someone online builds a relationship over weeks then asks for money. This is:", answers:["A romance scam","A genuine friendship","A common way to borrow money"], correct:0, explanation:"This is a textbook romance scam using emotional manipulation." },
+{ category:"Romance", question:"Romance scammers typically:", answers:["Arrange to meet in person quickly","Avoid meeting in person and make excuses","Share real photos and social media"], correct:1, explanation:"They always avoid real-world contact." },
+{ category:"Romance", question:"The best way to protect yourself from romance scams is:", answers:["Send small amounts of money to test them","Trust quickly if the relationship feels real","Never send money to someone you have not met in person"], correct:2, explanation:"Never send money to an online contact you have not met in person." },
+{ category:"Romance", question:"A common excuse romance scammers use to ask for money is:", answers:["A sudden medical or travel emergency","They want to buy you a gift","They want to invest together"], correct:0, explanation:"Fabricated emergencies are the most common trigger for money requests." },
+{ category:"Romance", question:"Romance scammers build trust in order to:", answers:["Form a genuine relationship","Eventually request money or personal info","Share investment tips"], correct:1, explanation:"Trust is built deliberately to exploit you later." },
+{ category:"Romance", question:"Profile photos that look too perfect on a dating app might be:", answers:["Always a sign of a genuine person","Stolen images used by a scammer","Automatically verified by the platform"], correct:1, explanation:"Scammers often use stolen or AI-generated photos." },
+{ category:"Romance", question:"Romance scams most often start on:", answers:["Dating apps and social media platforms","Government websites","Banking websites"], correct:0, explanation:"Dating apps and social media are the primary hunting grounds." },
+{ category:"Romance", question:"If someone you met online asks for money early in the relationship you should:", answers:["Send a small amount to seem helpful","Be cautious — this is a major red flag","Ask mutual friends if it is okay"], correct:1, explanation:"Early money requests are almost always a scam warning sign." },
+{ category:"Romance", question:"The best defense against romance scams is:", answers:["Sending small amounts to test honesty","Video chatting to verify their identity and never sending money","Trusting your feelings about the person"], correct:1, explanation:"Video verification helps — and never send money regardless." },
+{ category:"Romance", question:"If you suspect you are being targeted by a romance scam you should:", answers:["Continue the relationship to gather evidence","Stop all contact and report it to the platform","Ask the person directly if they are a scammer"], correct:1, explanation:"Stop contact immediately and report it." }
 
 ];
 
-/* ================= LIMIT TO 10 RANDOM QUESTIONS ================= */
+/* =============================================
+   ICON MAP
+   ============================================= */
+const typeIcons = {
+    Phishing: "🎣",
+    Urgency: "⏰",
+    Links: "🔗",
+    Impersonation: "🎭",
+    Lottery: "🎰",
+    Romance: "💔"
+};
+
+/* =============================================
+   INIT — check URL params
+   ============================================= */
 const params = new URLSearchParams(window.location.search);
-const selectedType = params.get("type");
+const urlType = params.get("type");
 
-let filteredQuestions = questions;
-
-if (selectedType) {
-    filteredQuestions = questions.filter(
-        q => q.category === selectedType
-    );
+if (urlType) {
+    startQuiz(urlType);
 }
 
-if (filteredQuestions.length === 0) {
-    filteredQuestions = questions;
-}
-
-filteredQuestions.sort(() => Math.random() - 0.5);
-
-const quizQuestions =
-    filteredQuestions.slice(
-        0,
-        Math.min(10, filteredQuestions.length)
-    );
-
-/* ================= STATE ================= */
+/* =============================================
+   STATE
+   ============================================= */
+let quizQuestions = [];
 let current = 0;
 let score = 0;
 let categoryScores = {};
 let answered = false;
+let activeType = null;
 
-/* ================= LOAD ================= */
+/* =============================================
+   START QUIZ
+   ============================================= */
+function startQuiz(type) {
+    activeType = type;
+
+    let pool = type
+        ? questions.filter(q => q.category === type)
+        : [...questions];
+
+    if (pool.length === 0) pool = [...questions];
+
+    pool.sort(() => Math.random() - 0.5);
+    quizQuestions = pool.slice(0, Math.min(10, pool.length));
+
+    current = 0;
+    score = 0;
+    categoryScores = {};
+    answered = false;
+
+    document.getElementById("selectorView").classList.add("hidden");
+    document.getElementById("quizView").classList.remove("hidden");
+
+    const icon = typeIcons[type] || "🎲";
+    document.getElementById("quizTitle").textContent = type ? `${type} Quiz` : "Mixed Quiz";
+    document.getElementById("quizSubtitle").textContent = type
+        ? `Test your knowledge on ${type.toLowerCase()} scams`
+        : "Questions across all scam categories";
+    document.getElementById("typeBadge").textContent = type ? `${icon} ${type}` : "🎲 Mixed";
+
+    loadQuestion();
+}
+
+/* =============================================
+   LOAD QUESTION
+   ============================================= */
 function loadQuestion() {
     const q = quizQuestions[current];
+    const total = quizQuestions.length;
+    const pct = (current / total) * 100;
 
-    document.getElementById("progress").innerText =
-        `Question ${current + 1} of ${quizQuestions.length}`;
-
-    document.getElementById("question").innerText =
-        `[${q.category}] ${q.question}`;
+    document.getElementById("progress").textContent = `${current + 1} / ${total}`;
+    document.getElementById("progressBar").style.width = pct + "%";
+    document.getElementById("question").textContent = q.question;
 
     const answersDiv = document.getElementById("answers");
     answersDiv.innerHTML = "";
 
     q.answers.forEach((answer, index) => {
         const btn = document.createElement("button");
-        btn.innerText = answer;
-        btn.onclick = () => checkAnswer(index);
+        btn.textContent = answer;
+        btn.onclick = () => checkAnswer(index, btn);
         answersDiv.appendChild(btn);
     });
 
-    document.getElementById("feedback").innerText = "";
+    const feedback = document.getElementById("feedback");
+    feedback.textContent = "";
+    feedback.className = "";
+
     document.getElementById("nextBtn").style.display = "none";
     answered = false;
 }
 
-/* ================= CHECK ================= */
-function checkAnswer(index) {
-    if (answered) return; // prevent double click
+/* =============================================
+   CHECK ANSWER
+   ============================================= */
+function checkAnswer(index, clickedBtn) {
+    if (answered) return;
+    answered = true;
 
-    const feedback = document.getElementById("feedback");
     const q = quizQuestions[current];
+    const buttons = document.querySelectorAll("#answers button");
 
     if (!categoryScores[q.category]) {
         categoryScores[q.category] = { correct: 0, total: 0 };
     }
-
     categoryScores[q.category].total++;
 
+    buttons.forEach(btn => btn.disabled = true);
+
+    const feedback = document.getElementById("feedback");
+
     if (index === q.correct) {
-        feedback.innerText = `✅ Correct! ${q.explanation}`;
+        clickedBtn.classList.add("correct");
+        feedback.textContent = `✅ Correct! ${q.explanation}`;
         score++;
         categoryScores[q.category].correct++;
     } else {
-        feedback.innerText = `❌ Incorrect. ${q.explanation}`;
+        clickedBtn.classList.add("incorrect");
+        buttons[q.correct].classList.add("correct");
+        feedback.textContent = `❌ Not quite. ${q.explanation}`;
     }
 
-    answered = true;
+    feedback.classList.add("visible");
     document.getElementById("nextBtn").style.display = "inline-block";
+
+    const pct = ((current + 1) / quizQuestions.length) * 100;
+    document.getElementById("progressBar").style.width = pct + "%";
 }
 
-/* ================= NEXT ================= */
+/* =============================================
+   NEXT
+   ============================================= */
 function nextQuestion() {
     current++;
-
     if (current < quizQuestions.length) {
         loadQuestion();
     } else {
@@ -525,23 +218,45 @@ function nextQuestion() {
     }
 }
 
-/* ================= RESULTS ================= */
+/* =============================================
+   RESULTS
+   ============================================= */
 function showResults() {
-    let resultText = `Quiz complete! Score: ${score}/${quizQuestions.length}\n\n`;
+    const total = quizQuestions.length;
+    const pct = Math.round((score / total) * 100);
 
-    resultText += "Category Breakdown:\n";
+    let message = "Keep practicing!";
+    if (pct === 100) message = "Perfect score! 🏆";
+    else if (pct >= 80) message = "Great work! 🎉";
+    else if (pct >= 60) message = "Good effort — keep it up!";
 
+    let breakdownHTML = "";
     for (let cat in categoryScores) {
         const c = categoryScores[cat];
-        resultText += `${cat}: ${c.correct}/${c.total}\n`;
+        breakdownHTML += `
+            <div class="breakdown-item">
+                <div class="cat-name">${cat}</div>
+                <div class="cat-score">${c.correct}/${c.total}</div>
+            </div>`;
     }
 
-    document.getElementById("question").innerText = resultText;
-    document.getElementById("answers").innerHTML =
-        '<button onclick="location.reload()">Restart Quiz</button>';
-    document.getElementById("feedback").innerText = "";
-    document.getElementById("nextBtn").style.display = "none";
+    const quizCard = document.querySelector("#quizView .card");
+    quizCard.innerHTML = `
+        <div class="quiz-results-view">
+            <div class="score-circle">
+                <span class="sc-num">${score}</span>
+                <span class="sc-den">/ ${total}</span>
+            </div>
+            <div class="results-title">${message}</div>
+            <div class="results-subtitle">${pct}% accuracy${activeType ? ` on ${activeType} scams` : ""}</div>
+            ${breakdownHTML ? `<div class="category-breakdown">${breakdownHTML}</div>` : ""}
+            <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+                <button class="primary" onclick="retryQuiz()">Try Again</button>
+                <a href="/quiz.html" class="primary" style="background:rgba(255,255,255,0.08);color:var(--text-secondary);border:1px solid var(--border-subtle);">Choose Category</a>
+            </div>
+        </div>`;
 }
 
-/* ================= START ================= */
-loadQuestion();
+function retryQuiz() {
+    startQuiz(activeType);
+}
