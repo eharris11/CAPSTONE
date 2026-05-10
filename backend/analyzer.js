@@ -30,9 +30,7 @@ function analyzeText(text) {
 
     const lower = text.toLowerCase();
     const normalized = lower.replace(/[^0-9]/g, "");
-
-    // ── SAFE CONTEXT GUARDS (run first so later rules can check them) ──────────
-    // Educational / informational context — user is discussing scams, not receiving one
+    
     const isEducational =
         lower.includes("how to spot") ||
         lower.includes("how to avoid") ||
@@ -44,7 +42,6 @@ function analyzeText(text) {
         lower.includes("be aware of") ||
         lower.includes("protect yourself");
 
-    // Legitimate business / transactional context
     const isBusinessContext =
         lower.includes("your order") ||
         lower.includes("your receipt") ||
@@ -58,9 +55,6 @@ function analyzeText(text) {
         lower.includes("as requested") ||
         lower.includes("per your request");
 
-    // Academic / school context
-    // Note: intentionally excludes "zoom", "meeting", "class", "school" — too broad,
-    // scam phishing links can reference those words legitimately.
     const isAcademic =
         lower.includes("student") ||
         lower.includes("homework") ||
@@ -70,7 +64,6 @@ function analyzeText(text) {
         lower.includes("campus") ||
         lower.includes("semester");
 
-    // Successful delivery (not failed) — reduces false positives on "package"
     const isSuccessfulDelivery =
         (lower.includes("delivery") || lower.includes("package")) &&
         (lower.includes("out for delivery") ||
@@ -79,10 +72,8 @@ function analyzeText(text) {
          lower.includes("your order has arrived") ||
          lower.includes("picked up"));
 
-    // ── CREDENTIAL HARVESTING ─────────────────────────────────────────────────
     let actionIntentTriggered = false;
 
-    // Strong form: verify/confirm + account/payment/identity + action word (click/link/call)
     if (
         (lower.includes("verify") || lower.includes("confirm")) &&
         (lower.includes("account") || lower.includes("payment") || lower.includes("identity")) &&
@@ -91,7 +82,6 @@ function analyzeText(text) {
         score += 5;
         categories.add("Credential harvesting");
         actionIntentTriggered = true;
-    // Weaker form: verify/confirm + account — only score if not business context
     } else if (
         !isBusinessContext &&
         (lower.includes("verify") || lower.includes("confirm")) &&
@@ -102,7 +92,6 @@ function analyzeText(text) {
         actionIntentTriggered = true;
     }
 
-    // Explicit password/login requests
     if (lower.includes("enter your password") || lower.includes("confirm your password") ||
         lower.includes("your login") || lower.includes("update your password")) {
         score += 4;
@@ -110,8 +99,6 @@ function analyzeText(text) {
         actionIntentTriggered = true;
     }
 
-    // ── URGENCY / PRESSURE TACTICS ────────────────────────────────────────────
-    // Require at least 2 urgency signals to avoid false positives from casual use of "urgent"
     const urgencySignals = [
         "act now", "act immediately", "respond immediately", "reply immediately",
         "limited time", "expires soon", "offer expires", "time sensitive",
@@ -122,7 +109,6 @@ function analyzeText(text) {
         "immediately or", "or your account", "or lose access"
     ];
     let urgencyCount = urgencySignals.filter(s => lower.includes(s)).length;
-    // Single strong standalone urgency words count as 0.5 each
     if (lower.includes("urgent") || lower.includes("immediately") || lower.includes("asap")) urgencyCount += 0.5;
 
     if (urgencyCount >= 2) {
@@ -133,7 +119,6 @@ function analyzeText(text) {
         categories.add("Urgency or pressure tactics");
     }
 
-    // ── SUSPICIOUS ACTION + CONTEXT COMBOS ───────────────────────────────────
     if (
         lower.includes("special offer") ||
         lower.includes("you've been chosen") ||
@@ -146,13 +131,11 @@ function analyzeText(text) {
         categories.add("Suspicious message patterns");
     }
 
-    // "Limited time" alone is weaker without other signals (sale emails use it)
     if (lower.includes("limited time") && urgencyCount >= 1) {
         score += 2;
         categories.add("Urgency or pressure tactics");
     }
 
-    // Failed delivery scam: only score if not a legitimate successful delivery
     if (
         !isSuccessfulDelivery &&
         (lower.includes("delivery") || lower.includes("package")) &&
@@ -170,7 +153,6 @@ function analyzeText(text) {
         categories.add("Suspicious message patterns");
     }
 
-    // Click + account/payment/offer — only if not a business receipt context
     if (
         !isBusinessContext &&
         !actionIntentTriggered &&
@@ -181,31 +163,26 @@ function analyzeText(text) {
         categories.add("Suspicious message patterns");
     }
 
-    // ── KEYWORD GROUPS ────────────────────────────────────────────────────────
     const keywordGroups = [
         {
-            // Talking *about* scams (educational) should not self-trigger
             words: ["phishing", "fake"],
             weight: 3,
             category: "Scam-related language",
             skipIf: isEducational
         },
         {
-            // "scam" and "fraud" in educational context are common — skip
             words: ["scam", "fraud"],
             weight: 2,
             category: "Scam-related language",
             skipIf: isEducational
         },
         {
-            // Sensitive data keywords — high weight but skip if clearly educational
             words: ["social security", "ssn", "credit card number", "irs", "IRS"],
             weight: 5,
             category: "Sensitive data targeting",
             skipIf: isEducational || isAcademic
         },
         {
-            // "bank" and "tax" alone are very common — only score in suspicious context
             words: ["your bank account", "bank account number", "tax refund"],
             weight: 4,
             category: "Sensitive data targeting",
@@ -230,14 +207,12 @@ function analyzeText(text) {
             skipIf: isBusinessContext
         },
         {
-            // "send money", "wire transfer", "money transfer" are strong scam signals
             words: ["send money", "wire transfer", "money transfer", "western union", "moneygram", "gift card payment", "pay in gift cards"],
             weight: 5,
             category: "Payment redirection",
             skipIf: false
         },
         {
-            // Generic "send/give/provide" — too broad, require scam context
             words: ["provide your", "give us your", "share your"],
             weight: 2,
             category: "Request for information",
@@ -245,7 +220,6 @@ function analyzeText(text) {
         },
     ];
 
-    // Prize/lottery: strong combo — won + financial term
     if (
         lower.includes("won") &&
         !isEducational &&
@@ -273,8 +247,6 @@ function analyzeText(text) {
         }
     }
 
-    // ── DOMAIN / URL ANALYSIS ─────────────────────────────────────────────────
-    // Extract all URLs in the text, not just the first one
     const domainMatches = [...lower.matchAll(/(?:https?:\/\/)?(?:www\.)?((?:\d{1,3}\.){3}\d{1,3}|[a-z0-9.-]+\.[a-z]{2,})/g)];
 
     let hitBadDomain = false;
@@ -305,22 +277,18 @@ function analyzeText(text) {
             }
         }
 
-        // Suspicious URL patterns — more specific than before to reduce false positives
-        // "secure" alone is common in legitimate URLs (e.g. secure.paypal.com)
-        // Flag it only when combined with other suspicious terms in the domain
         if (
             (cleanDomain.includes("verify") && !cleanDomain.endsWith(".gov")) ||
             (cleanDomain.includes("secure") && cleanDomain.includes("login")) ||
             (cleanDomain.includes("account") && cleanDomain.includes("update")) ||
-            /\d{3,}-/.test(cleanDomain) ||  // numeric prefixes like 443-bank.com
-            (cleanDomain.split(".").length > 3 && !hitGoodDomain) // excessive subdomains
+            /\d{3,}-/.test(cleanDomain) ||
+            (cleanDomain.split(".").length > 3 && !hitGoodDomain)
         ) {
             score += 3;
             categories.add("Suspicious link structure");
         }
     }
 
-    // ── PHONE NUMBER MATCHING ─────────────────────────────────────────────────
     const numbers = normalized.match(/\d{7,15}/g) || [];
 
     for (const num of numbers) {
@@ -330,12 +298,11 @@ function analyzeText(text) {
         }
     }
 
-    // ── PATTERN FILE MATCHING ─────────────────────────────────────────────────
     const stopWords = ["this","that","from","have","your","with","there","here","been","will","they","them","just","about","what","when","were","which"];
     let patternScore = 0;
 
     for (const p of scamPatterns) {
-        if (isEducational) break; // Skip pattern matching in educational context
+        if (isEducational) break;
         const words = p.value.split(" ").filter(w => w.length > 3 && !stopWords.includes(w));
         if (words.length === 0) continue;
 
@@ -344,7 +311,6 @@ function analyzeText(text) {
             if (lower.includes(word)) matchCount++;
         }
 
-        // Require stricter match ratio to reduce false positives from partial phrase overlap
         const ratio = matchCount / words.length;
         if (ratio >= 0.6 && matchCount >= 2) {
             if (patternScore < 10) {
@@ -370,13 +336,11 @@ function analyzeText(text) {
         }
     }
 
-    // ── CONTEXT-BASED SCORE REDUCTIONS ───────────────────────────────────────
     if (isAcademic) score -= 6;
     if (isBusinessContext) score -= 4;
     if (isSuccessfulDelivery) score -= 5;
     if (isEducational) score -= 8;
 
-    // Internal comms / HR context (job offers from known companies are usually safe)
     if (
         (lower.includes("hr") || lower.includes("human resources") || lower.includes("onboarding")) &&
         (lower.includes("welcome") || lower.includes("start date") || lower.includes("offer letter"))
@@ -384,7 +348,6 @@ function analyzeText(text) {
         score -= 4;
     }
 
-    // Romance scam signals (add, not reduce)
     if (
         (lower.includes("met online") || lower.includes("dating") || lower.includes("fell in love")) &&
         (lower.includes("money") || lower.includes("send") || lower.includes("emergency"))
@@ -393,7 +356,6 @@ function analyzeText(text) {
         categories.add("Romance scam indicators");
     }
 
-    // Impersonation signals — requires a specific authority claim, not just "this is"
     if (
         (lower.includes("calling from") || lower.includes("i am from") ||
          lower.includes("i'm from") || lower.includes("representative of") ||
@@ -406,7 +368,6 @@ function analyzeText(text) {
         categories.add("Impersonation attempt");
     }
 
-    // ── SCORE CLEANUP ─────────────────────────────────────────────────────────
     if (score < 0) score = 0;
 
     if (score >= 7) {
@@ -415,7 +376,6 @@ function analyzeText(text) {
         categories.delete("Suspicious message patterns");
     }
 
-    // Don't bump low scores up to Suspicious unless there's at least one real indicator
     const hasRealIndicator = categories.size > 0 &&
         !Array.from(categories).every(c => c === "Legitimate message indicators" || c === "Recognized safe source");
 
@@ -425,7 +385,6 @@ function analyzeText(text) {
 
     if (score > 20) score = 20;
 
-    // ── CLASSIFICATION ────────────────────────────────────────────────────────
     let result;
     if (score >= 12) result = "High Risk Scam";
     else if (score >= 7) result = "Probable Risk";
